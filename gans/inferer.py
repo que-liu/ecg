@@ -20,7 +20,7 @@ from models.cond_wavegan_star import CondWaveGANGenerator
 
 
 #这是WAVEGAN_COND的权重
-chk_path = r"/home/zyw/gans/WAVEGAN_COND/all_labels_uncond_star/checkpoints/checkpoint_epoch_3000.pth"
+chk_path = r"/content/ecg/gans/WAVEGAN_COND/all_labels_uncond_star/checkpoints/checkpoint_epoch_3000.pth"
 netD = CondWaveGANDiscriminator(model_size=50, ngpus=1).cuda()
 netG = CondWaveGANGenerator(model_size=50, ngpus=1).cuda()
 
@@ -51,7 +51,7 @@ netG.load_state_dict(chkpnt["netG_state_dict"])
 
 # x = Variable(torch.randn(32, 8, 1000)).cuda() #准备输入数据：生成了一个大小为 (32, 8, 1000) 的张量 x，代表了输入的随机数据
 #载入训练标签
-labels_all = np.load(r'/home/zyw/gans/dataset/label/1000_valid_labels.npy')
+labels_all = np.load(r'/content/ecg/gans/dataset/label/1000_valid_labels.npy')
 # 定义批大小
 batch_size = 32
 # 获取总样本数
@@ -87,8 +87,8 @@ generated_signals = np.concatenate(generated_signals, axis=0)
 
 # 保存生成的信号为.npy文件
 # np.save(r'/home/zyw/gans/P2P/p2p/generated3000_val_signals.npy', generated_signals)
-np.save(r'/home/zyw/gans/WAVEGAN_COND/all_labels_uncond_star/checkpoints/generated2970_val_signals.npy', generated_signals)
-print("保存成功!")
+np.save(r'/content/ecg/gans/WAVEGAN_COND/all_labels_uncond_star/checkpoints/generated2970_val_signals.npy', generated_signals)
+print("saved!")
 
 
 
