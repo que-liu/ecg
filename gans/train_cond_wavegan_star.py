@@ -57,7 +57,7 @@ parser.add_argument("--ngpus", type=int, default=1, help="Number of GPUs used in
 parser.add_argument("--checkpoint_interval", type=int, default=30, help="Interval to save checkpoint models")  #间隔保存模型
 
 # Checkpoint path to retrain or test models    重新训练或测试模型的检查点路径
-parser.add_argument("--checkpoint_path", default=r"/home/zyw/gans/WAVEGAN_COND/all_labels_uncond_star/checkpoints/checkpoint_epoch_2970.pth", help="Check point path to retrain or test models")
+parser.add_argument("--checkpoint_path", default=r"/content/ecg/gans/WAVEGAN_COND/all_labels_uncond_star/checkpoints/checkpoint_epoch_2970.pth", help="Check point path to retrain or test models")
 
 parser.add_argument('-ms', '--model_size', type=int, default=50,
                         help='Model size parameter used in WaveGAN')
@@ -105,13 +105,13 @@ os.makedirs( tensorboard_exp_dir, exist_ok=True)
 
 
 def prepare_data():
-    dataset = np.load(r"D:\SSSD保存的数据\原论文提供的\dataset\train_ptbxl_1000.npy")
+    dataset = np.load(r"/content/ecg/Datasets/dataset/train_ptbxl_1000.npy")
    
     index_8 = torch.tensor([0,2,3,4,5,6,7,11])
     index_4 = torch.tensor([1,8,9,10])
     
     dataset = torch.index_select(torch.from_numpy(dataset), 1, index_8).float()
-    labels = np.load(r"D:\SSSD保存的数据\原论文提供的\label\1000_train_labels.npy")
+    labels = np.load(r"/content/ecg/Datasets/label/1000_train_labels.npy")
     
     data = []
     for signal, label in zip(dataset, labels):
