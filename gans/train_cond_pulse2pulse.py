@@ -120,14 +120,14 @@ os.makedirs( tensorboard_exp_dir, exist_ok=True)
 #==========================================
 
 def prepare_data():#定义了一个名为prepare_data的函数，用于准备数据集并创建数据加载器（dataloader）。
-    dataset = np.load(r"/content/ecg/gans/dataset/data/train_ptbxl_1000.npy")
+    dataset = np.load(r"/content/ecg/Datasets/dataset/train_ptbxl_1000.npy")
    
     
     index_8 = torch.tensor([0,2,3,4,5,6,7,11])
     index_4 = torch.tensor([1,8,9,10])  #定义了两个索引张量，用于从数据集中选择特定的信号。index_8选择了索引为0、2、3、4、5、6、7、11的信号，index_4选择了索引为1、8、9、10的信号
     
     dataset = torch.index_select(torch.from_numpy(dataset), 1, index_8).float() #PyTorch的index_select函数根据索引index_8选择数据集中的特定信号，并将结果转换为浮点张量。
-    labels = np.load(r"/content/ecg/gans/dataset/label/1000_train_labels.npy")
+    labels = np.load(r"/content/ecg/Datasets/label/1000_train_labels.npy")
     
     data = []
     
