@@ -43,8 +43,8 @@ torch.manual_seed(seed)
 train_x=np.load(r"D:\SSSD-ECG\train_test10000_data.npy")  #data
 train_y=np.load(r"D:\SSSD-ECG\train_test_labels.npy")     #label
 #验证数据（需要改为自己的路径）也可以改为test数据
-val_x=np.load(r"D:\SSSD保存的数据\原论文提供的\dataset\val_ptbxl_1000.npy")
-val_y=np.load(r"D:\SSSD保存的数据\原论文提供的\label\1000_valid_labels.npy")
+val_x=np.load(r"/content/ecg/Datasets/dataset/val_ptbxl_1000.npy")
+val_y=np.load(r"/content/ecg/Datasets/label/1000_valid_labels.npy")
 
 train_set = Dataset(train_x, train_y, int(w_size * model_sr))
 val_set = Dataset(val_x, val_y, int(w_size * model_sr))
