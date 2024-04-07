@@ -20,13 +20,13 @@ model.to(device)
 #原始数据训练的权重
 # checkpoint_path = r"D:\xResnet-main\xResnet1d-main\results\raw\model_weight_val100.pt"
 #add之后训练的权重
-checkpoint_path = r"D:\xResnet-main\xResnet1d-main\results\model_weight_val91.pt" # 更新为正确的路径
+checkpoint_path = r"/content/ecg/xResnet1d-main/results/model_weight_val91.pt" # 更新为正确的路径
 checkpoint = torch.load(checkpoint_path, map_location=device)
 model.load_state_dict(checkpoint)
 #train_loss: 0.049262, train_f1: 0.766108 val_loss: 0.059626, val_f1: 0.725177 Time Duration: 0:00:16.322713
 # 真实数据
-val_x = np.load(r"D:\SSSD保存的数据\原论文提供的\dataset\val_ptbxl_1000.npy")
-val_y = np.load(r"D:\SSSD保存的数据\原论文提供的\label\1000_valid_labels.npy")
+val_x = np.load(r"/content/ecg/Datasets/dataset/val_ptbxl_1000.npy")
+val_y = np.load(r"/content/ecg/Datasets/label/1000_valid_labels.npy")
 new_dataset =  Dataset(val_x, val_y, int(w_size * model_sr))  # 使用适当的参数初始化您的新数据集
 new_data_loader = DataLoader(new_dataset, batch_size=64, shuffle=True)  #0.42500351485399973
 # 定义您的损失函数和其他必要的组件
