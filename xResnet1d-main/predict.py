@@ -20,7 +20,7 @@ model.to(device)
 #原始数据训练的权重
 # checkpoint_path = r"D:\xResnet-main\xResnet1d-main\results\raw\model_weight_val100.pt"
 #add之后训练的权重
-checkpoint_path = r"/content/ecg/xResnet1d-main/results/model_weight_val91.pt" # 更新为正确的路径
+checkpoint_path = r"/content/ecg/xResnet1d-main/results/raw/model_weight_val100.pt" # 更新为正确的路径
 checkpoint = torch.load(checkpoint_path, map_location=device)
 model.load_state_dict(checkpoint)
 #train_loss: 0.049262, train_f1: 0.766108 val_loss: 0.059626, val_f1: 0.725177 Time Duration: 0:00:16.322713
