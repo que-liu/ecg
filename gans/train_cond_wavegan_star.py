@@ -105,7 +105,7 @@ os.makedirs( tensorboard_exp_dir, exist_ok=True)
 
 
 def prepare_data():
-    dataset = np.load(r"/content/ecg/Datasets/dataset/train_ptbxl_1000.npy")
+    dataset = np.load(r"/content/ecg/Dataset/dataset/train_ptbxl_1000.npy")
    
     index_8 = torch.tensor([0,2,3,4,5,6,7,11])
     index_4 = torch.tensor([1,8,9,10])
