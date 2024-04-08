@@ -111,7 +111,7 @@ def prepare_data():
     index_4 = torch.tensor([1,8,9,10])
     
     dataset = torch.index_select(torch.from_numpy(dataset), 1, index_8).float()
-    labels = np.load(r"/content/ecg/Datasets/label/1000_train_labels.npy")
+    labels = np.load(r"/content/ecg/Dataset/label/1000_train_labels.npy")
     
     data = []
     for signal, label in zip(dataset, labels):
