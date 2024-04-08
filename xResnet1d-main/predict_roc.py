@@ -30,8 +30,8 @@ checkpoint_path = r"/content/ecg/xResnet1d-main/results/raw/model_weight_val81.p
 checkpoint = torch.load(checkpoint_path, map_location=device)
 model.load_state_dict(checkpoint)
 #验证数据
-val_x = np.load(r"/content/ecg/Datasets/dataset/val_ptbxl_1000.npy")
-val_y = np.load(r"/content/ecg/Datasets/label/1000_valid_labels.npy")
+val_x = np.load(r"/content/ecg/Dataset/dataset/val_ptbxl_1000.npy")
+val_y = np.load(r"/content/ecg/Dataset/label/1000_valid_labels.npy")
 new_dataset =  Dataset(val_x, val_y, int(w_size * model_sr))  # 使用适当的参数初始化您的新数据集
 new_data_loader = DataLoader(new_dataset, batch_size=64, shuffle=True)
 loss_fn = torch.nn.BCEWithLogitsLoss()
