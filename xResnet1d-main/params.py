@@ -30,6 +30,7 @@ n_epochs = 100
 "Setting GPU"
 
 use_cpu = False
+device = torch.device('cpu')
 m_seed = None # Set Seed for Reproducibility   为可重复性播下种子
 
 if use_cpu:
@@ -51,9 +52,7 @@ elif not torch.backends.mps.is_available(): #Setting GPU for Mac User
 
 else:
     device = torch.device("mps")
-# Add an else block to define device if none of the conditions are met
-else:
-    device = torch.device('cpu') 
+
 print(device)
 
 #%%
