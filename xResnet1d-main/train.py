@@ -131,10 +131,10 @@ for epoch in range(n_epochs):
     val_loss.append(sum(val_loss_per_step)/len(val_loss_per_step))
     val_f1.append(np.average(val_f1_per_step))   #计算并记录当前验证周期的平均损失和平均 F1 分数
     torch.save(model.state_dict(), 
-               f'results/model_weight_val{epoch+1:02d}.pt')#保存当前训练周期的模型权重
+               f'/content/ecg/xResnet1d-main/results/model_weight_val{epoch+1:02d}.pt')#保存当前训练周期的模型权重
 
     dt = datetime.now() - t0
-    with open('results/log_add.txt',
+    with open('/content/ecg/xResnet1d-main/results/log_add.txt',
               "a+") as external_file:
         print(f'''train_loss: {train_loss[-1]:.6f}, 
               train_f1: {train_f1[-1]:.6f}''',
@@ -153,14 +153,14 @@ plt.figure() #创建一个新的图表
 plt.plot(train_loss, label='train loss') #绘制训练集损失曲线。
 plt.plot(val_loss, label='val loss')#绘制验证集损失曲线
 plt.legend() # 添加图例，显示哪条曲线对应哪个标签
-plt.savefig('results/Loss_add.png', )   #plt.savefig('results/Loss.png') 在 plt.show() 之后，这会导致保存的图表为空白。应该调换它们的顺序，先保存图表再显示
+plt.savefig('/content/ecg/xResnet1d-main/results/Loss_add.png', )   #plt.savefig('results/Loss.png') 在 plt.show() 之后，这会导致保存的图表为空白。应该调换它们的顺序，先保存图表再显示
 plt.show()
 
 plt.figure()  #F1 分数图表   创建一个新的图表
 plt.plot(train_f1, label='train F1')   #绘制训练集 F1 分数曲线
 plt.plot(val_f1, label='val F1')     #绘制验证集 F1 分数曲线。
 plt.legend()
-plt.savefig('results/F1_Score_add.png', )  #添加图例，显示哪条曲线对应哪个标签。
+plt.savefig('/content/ecg/xResnet1d-main/results/F1_Score_add.png', )  #添加图例，显示哪条曲线对应哪个标签。
 plt.show()
 
 predictions = []
