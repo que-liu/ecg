@@ -51,6 +51,9 @@ elif not torch.backends.mps.is_available(): #Setting GPU for Mac User
 
 else:
     device = torch.device("mps")
+# Add an else block to define device if none of the conditions are met
+else:
+    device = torch.device('cpu') 
 print(device)
 
 #%%
