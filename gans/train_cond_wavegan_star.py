@@ -57,7 +57,7 @@ parser.add_argument("--ngpus", type=int, default=1, help="Number of GPUs used in
 parser.add_argument("--checkpoint_interval", type=int, default=30, help="Interval to save checkpoint models")  #间隔保存模型
 
 # Checkpoint path to retrain or test models    重新训练或测试模型的检查点路径
-parser.add_argument("--checkpoint_path", default=r"/content/ecg/gans/WAVEGAN_COND/all_labels_uncond_star/checkpoints/checkpoint_epoch_2970.pth", help="Check point path to retrain or test models")
+parser.add_argument("--checkpoint_path", default=r"/content/ecg/gans/WAVEGAN_COND/all_labels_uncond_star/checkpoints/checkpoint_epoch_3000.pth", help="Check point path to retrain or test models")
 
 parser.add_argument('-ms', '--model_size', type=int, default=50,
                         help='Model size parameter used in WaveGAN')
