@@ -150,17 +150,17 @@ for epoch in range(n_epochs):
 'Results Visualization'
 
 plt.figure() #创建一个新的图表
-plt.plot(train_loss, label='train loss') #绘制训练集损失曲线。
-plt.plot(val_loss, label='val loss')#绘制验证集损失曲线
+plt.plot(train_loss, label='loss of train set') #绘制训练集损失曲线。
+plt.plot(val_loss, label='loss of validation set')#绘制验证集损失曲线
 plt.legend() # 添加图例，显示哪条曲线对应哪个标签
-plt.savefig('/content/ecg/xResnet1d-main/results/Loss_add.png', )   #plt.savefig('results/Loss.png') 在 plt.show() 之后，这会导致保存的图表为空白。应该调换它们的顺序，先保存图表再显示
+plt.savefig('/content/ecg/xResnet1d-main/results/Loss.png', ) 
 plt.show()
 
 plt.figure()  #F1 分数图表   创建一个新的图表
-plt.plot(train_f1, label='train F1')   #绘制训练集 F1 分数曲线
-plt.plot(val_f1, label='val F1')     #绘制验证集 F1 分数曲线。
+plt.plot(train_f1, label='F1 of train set')   #绘制训练集 F1 分数曲线
+plt.plot(val_f1, label='F1 of validation set')     #绘制验证集 F1 分数曲线。
 plt.legend()
-plt.savefig('/content/ecg/xResnet1d-main/results/F1_Score_add.png', )  #添加图例，显示哪条曲线对应哪个标签。
+plt.savefig('/content/ecg/xResnet1d-main/results/F1_Score.png', )  #添加图例，显示哪条曲线对应哪个标签。
 plt.show()
 
 predictions = []
