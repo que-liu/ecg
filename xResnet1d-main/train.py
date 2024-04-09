@@ -43,8 +43,8 @@ torch.manual_seed(seed)
 train_x=np.load(r"/content/ecg/Dataset/dataset/train_ptbxl_1000.npy")  #data
 train_y=np.load(r"/content/ecg/Dataset/label/1000_train_labels.npy")     #label
 #验证数据（需要改为自己的路径）也可以改为test数据
-val_x=np.load(r"/content/ecg/Dataset/dataset/val_ptbxl_1000.npy")
-val_y=np.load(r"/content/ecg/Dataset/label/1000_val_labels.npy")
+val_x=np.load(r"/content/ecg/Dataset/dataset/test_ptbxl_1000.npy")
+val_y=np.load(r"/content/ecg/Dataset/label/1000_test_labels.npy")
 
 train_set = Dataset(train_x, train_y, int(w_size * model_sr))
 val_set = Dataset(val_x, val_y, int(w_size * model_sr))
@@ -134,7 +134,7 @@ for epoch in range(n_epochs):
                f'/content/ecg/xResnet1d-main/results/model_weight_val{epoch+1:02d}.pt')#保存当前训练周期的模型权重
 
     dt = datetime.now() - t0
-    with open('/content/ecg/xResnet1d-main/results/log_add1.txt',
+    with open('/content/ecg/xResnet1d-main/results/log_add2.txt',
               "a+") as external_file:
         print(f'''train_loss: {train_loss[-1]:.6f}, 
               train_f1: {train_f1[-1]:.6f}''',
@@ -150,17 +150,17 @@ for epoch in range(n_epochs):
 'Results Visualization'
 
 plt.figure() #创建一个新的图表
-plt.plot(train_loss, label='train loss (GAN)') #绘制训练集损失曲线。
-plt.plot(val_loss, label='val loss (GAN)')#绘制验证集损失曲线
+plt.plot(train_loss, label='train loss') #绘制训练集损失曲线。
+plt.plot(val_loss, label='val loss')#绘制验证集损失曲线
 plt.legend() # 添加图例，显示哪条曲线对应哪个标签
-plt.savefig('/content/ecg/xResnet1d-main/results/Loss(GAN).png', ) 
+plt.savefig('/content/ecg/xResnet1d-main/results/Loss.png', ) 
 plt.show()
 
 plt.figure()  #F1 分数图表   创建一个新的图表
-plt.plot(train_f1, label='train F1 (GAN)')   #绘制训练集 F1 分数曲线
-plt.plot(val_f1, label='val F1 (GAN)')     #绘制验证集 F1 分数曲线。
+plt.plot(train_f1, label='train F1')   #绘制训练集 F1 分数曲线
+plt.plot(val_f1, label='val F1')     #绘制验证集 F1 分数曲线。
 plt.legend()
-plt.savefig('/content/ecg/xResnet1d-main/results/F1_Score(GAN).png', )  #添加图例，显示哪条曲线对应哪个标签。
+plt.savefig('/content/ecg/xResnet1d-main/results/F1_Score.png', )  #添加图例，显示哪条曲线对应哪个标签。
 plt.show()
 
 predictions = []
